@@ -1,0 +1,25 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { ThemeProvider } from './context/ThemeContext'
+import Navbar from './components/Navbar'
+import Home from './pages/Home'
+import CoinDetail from './pages/CoinDetail'
+
+function App() {
+  return (
+    <ThemeProvider>
+      <BrowserRouter>
+        <div className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-300 grid-bg">
+          <Navbar />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/coin/:id" element={<CoinDetail />} />
+            </Routes>
+          </main>
+        </div>
+      </BrowserRouter>
+    </ThemeProvider>
+  )
+}
+
+export default App
