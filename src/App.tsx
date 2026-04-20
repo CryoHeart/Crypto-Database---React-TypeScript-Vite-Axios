@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import { ThemeProvider } from './context/ThemeContext'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
@@ -8,7 +8,7 @@ import Compare from './pages/Compare'
 function App() {
   return (
     <ThemeProvider>
-      <BrowserRouter>
+      <HashRouter>
         <div className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-300 grid-bg">
           <Navbar />
           <main>
@@ -19,7 +19,7 @@ function App() {
             </Routes>
           </main>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     </ThemeProvider>
   )
 }
