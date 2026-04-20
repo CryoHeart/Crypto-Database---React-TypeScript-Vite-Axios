@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useTheme } from '../context/ThemeContext'
 
 function SunIcon() {
@@ -20,6 +20,8 @@ function MoonIcon() {
 
 export default function Navbar() {
   const { dark, toggle } = useTheme()
+  const { pathname } = useLocation()
+  const onComparePage = pathname === '/compare'
 
   return (
     <nav className="sticky top-0 z-50 bg-white/85 dark:bg-slate-950/90 backdrop-blur-md border-b border-violet-100 dark:border-violet-900/40">
@@ -42,6 +44,12 @@ export default function Navbar() {
 
         {/* Right side */}
         <div className="flex items-center gap-3">
+          <Link
+            to={onComparePage ? '/' : '/compare'}
+            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-semibold tracking-wider uppercase text-violet-600 dark:text-violet-400 hover:bg-violet-50 dark:hover:bg-violet-900/20 border border-violet-200 dark:border-violet-800/50 hover:border-violet-400 dark:hover:border-violet-600 transition-all"
+          >
+            {onComparePage ? '← Home' : '⇌ Compare'}
+          </Link>
           <span className="hidden sm:block text-xs font-mono text-slate-300 dark:text-slate-600 tracking-widest uppercase select-none">
             ⬡ CoinMarketCap
           </span>

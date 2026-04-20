@@ -3,6 +3,7 @@ import { ThemeProvider } from './context/ThemeContext'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import CoinDetail from './pages/CoinDetail'
+import Compare from './pages/Compare'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/coin/:id" element={<CoinDetail />} />
+              <Route path="/compare" element={<Compare />} />
             </Routes>
           </main>
         </div>
